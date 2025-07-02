@@ -1,10 +1,13 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
 import { useTRPC } from "@/trpc/client";
+import { useState } from "react";
+
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 // server call
 // import { caller } from "@/trpc/server";
 // const data = await caller.createAI({text:"Abdulrhman SERVER"})  
@@ -17,6 +20,7 @@ import { toast } from "sonner";
 
 
 const Page =() => {
+  const[value,setValue] = useState("");
   // const queryClient = getQueryClient();
   // void queryClient.prefetchQuery(trpc.createAI.queryOptions({text:"Abdulrhman PREFETCH"}))
   const trpc = useTRPC()
@@ -32,8 +36,9 @@ const Page =() => {
           <Client />
         </Suspense>
       </HydrationBoundary> */}
+        <Input value={value} onChange={(e) => setValue(e.target.value)}/>
 
-        <Button disabled={invoke.isPending}  onClick={() => invoke.mutate({text:"test"})}>
+        <Button disabled={invoke.isPending}  onClick={() => invoke.mutate({value:value})}>
           Invoke Background Job
         </Button>
     </div>
