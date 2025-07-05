@@ -1,0 +1,17 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (zdnxtglimz10pn9lof8n) or template name (ambion-nextjs-test2) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("ambion-nextjs-test2") # Sync sandbox
+# sandbox = await AsyncSandbox.create("ambion-nextjs-test2") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('ambion-nextjs-test2')
+
+team_id = "743d7858-a5d1-42b4-b3f4-d16746f30f70"
+start_cmd = "/compile_page.sh"
+dockerfile = "e2b.Dockerfile"
+template_name = "ambion-nextjs-test2"
+template_id = "zdnxtglimz10pn9lof8n"
